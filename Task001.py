@@ -3,12 +3,19 @@
 #Ввод чисел продолжается до ввода пустой строки.
 from functools import reduce
 import math
+import numbers
 import os
 def clear(): return os.system('cls')
 
 
 clear()
 
-list = [int(i) for i in input('Введите числа через пробел: ').split()]
-NOD = reduce(math.gcd, list)
+numbers = []
+while (True):
+    i = input('Введите число: ').strip()
+    if i == '':
+        break
+    numbers.append(i)
+sp = list(map(int, numbers))
+NOD = reduce(math.gcd, sp)
 print(NOD)
